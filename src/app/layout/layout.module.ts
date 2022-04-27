@@ -1,12 +1,12 @@
-import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { MaterialModule } from '../shared/material.module';
+import { SharedModule } from '../shared/shared.module';
 import { LayoutComponent } from './layout.component';
 
 @NgModule({
   declarations: [LayoutComponent],
-  imports: [RouterModule, CommonModule, MaterialModule],
+  imports: [RouterModule, SharedModule, HttpClientModule],
 })
 export class LayoutModule {}

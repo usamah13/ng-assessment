@@ -1,45 +1,47 @@
 <div class="px-4 py-6 sm:px-0 mx-auto lg:w-1/2">
   <div class="flex flex-col w-full filter-list">
     <div class="flex items-center justify-between">
-      <div class="text-2xl font-semibold leading-tight">Daily Schedule</div>
+      <div class="text-2xl font-semibold leading-tight">100m</div>
       <div class="-mr-3">
         <button
-          class="hover:bg-gray-200 w-10 h-10 p-1 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-transparent"
+          class="flex hover:bg-gray-200 p-2 rounded items-center justify-between"
           mat-icon-button
           [matMenuTriggerFor]="cardMenu"
         >
-          <mat-icon class="icon-size-5">sort</mat-icon>
+          <span class="pl-1">Sort</span>
+          <mat-icon class="icon-size-5 ml-1 text-gray-400">expand_more</mat-icon>
         </button>
         <mat-menu #cardMenu="matMenu">
-          <button mat-menu-item>View weekly</button>
-          <button mat-menu-item>View monthly</button>
+          <button
+            mat-menu-item
+            class="font-medium"
+          >
+            Time: Fast to Slow
+          </button>
+          <button
+            mat-menu-item
+            class="text-gray-400"
+          >
+            Time: Slow to Fast
+          </button>
         </mat-menu>
       </div>
     </div>
     <div class="flex flex-col my-2">
-      <div class="my-2">
-        <div>Code review</div>
-        <div class="text-secondary text-md">11:00 AM</div>
-      </div>
-      <div class="my-2">
-        <div>Lunch with Sam</div>
-        <div class="text-secondary text-md">12:30 PM</div>
-      </div>
-      <div class="my-2">
-        <div>Presentation of weekly usage and analytics report</div>
-        <div class="text-secondary text-md">01:45 PM</div>
-      </div>
-      <div class="my-2">
-        <div>Meeting with new interns</div>
-        <div class="text-secondary text-md">02:30 PM</div>
-      </div>
-      <div class="my-2">
-        <div>Coffee break & John's birthday</div>
-        <div class="text-secondary text-md">03:30 PM</div>
-      </div>
-      <div class="my-2">
-        <div>Dinner with wife and kids</div>
-        <div class="text-secondary text-md">07:30 PM</div>
+      <div
+        *ngFor="let performance of performances$ | async"
+        class="flex my-2 justify-between"
+      >
+        <div class="flex flex-col">
+          <div>
+            {{ performance.name }}
+            <span class="font-medium bg-gray-200 text-gray-900 py-1 px-2 rounded text-xs ml-2">{{
+              performance.year
+            }}</span>
+          </div>
+          <div>{{ performance.program }}</div>
+        </div>
+        <div class="text-secondary text-md">{{ performance.value }}</div>
       </div>
     </div>
   </div>
