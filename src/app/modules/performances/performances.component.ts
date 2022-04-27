@@ -68,8 +68,6 @@ export class PerformancesComponent implements OnInit, OnDestroy {
 
     // set the selected option to active
     this.menuOptions[selectedOption.label].active = true;
-
-    console.log(this.menuOptions);
   }
 
   private getSortedPerformances(sortDirection: SortDirection): void {
