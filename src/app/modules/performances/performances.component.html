@@ -12,18 +12,17 @@
           <mat-icon class="icon-size-5 ml-1 text-gray-400">expand_more</mat-icon>
         </button>
         <mat-menu #cardMenu="matMenu">
-          <button
-            mat-menu-item
-            class="font-medium"
-          >
-            Time: Fast to Slow
-          </button>
-          <button
-            mat-menu-item
-            class="text-gray-400"
-          >
-            Time: Slow to Fast
-          </button>
+          <ng-container *ngFor="let option of menuOptions | keyvalue">
+            <mat-divider *ngIf="option.value.showDivider"></mat-divider>
+            <button
+              mat-menu-item
+              [class.font-medium]="option.value.active"
+              [class.text-gray-400]="!option.value.active"
+              (click)="onMenuItemClick(option.value)"
+            >
+              {{ option.value.label }}
+            </button>
+          </ng-container>
         </mat-menu>
       </div>
     </div>
@@ -33,13 +32,13 @@
         class="flex my-2 justify-between"
       >
         <div class="flex flex-col">
-          <div>
-            {{ performance.name }}
+          <div class="flex flex-row">
+            <span class="w-[125px]"> {{ performance.name }}</span>
             <span class="font-medium bg-gray-200 text-gray-900 py-1 px-2 rounded text-xs ml-2">{{
               performance.year
             }}</span>
           </div>
-          <div>{{ performance.program }}</div>
+          <div class="text-gray-400 italic">{{ performance.program }}</div>
         </div>
         <div class="text-secondary text-md">{{ performance.value }}</div>
       </div>

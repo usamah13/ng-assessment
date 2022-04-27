@@ -11,6 +11,6 @@ export class PerformancesResolver implements Resolve<any> {
   constructor(private _performancesService: PerformancesService) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
-    return this._performancesService.getPerformances();
+    return this._performancesService.getSortedPerformances("year:frToSr");
   }
 }
