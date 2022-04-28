@@ -1,9 +1,9 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { BehaviorSubject, Observable, tap } from "rxjs";
 
-import { Performance } from './performance.type';
-import { SortDirection } from './performances.component';
+import { Performance } from "./performance.type";
+import { SortDirection } from "./performances.component";
 
 @Injectable({
   providedIn: "root",

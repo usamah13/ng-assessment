@@ -1,9 +1,16 @@
-import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
-import { Inject, Injectable } from '@angular/core';
-import { delay, Observable, of, switchMap, throwError } from 'rxjs';
+import {
+  HttpErrorResponse,
+  HttpEvent,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest,
+  HttpResponse,
+} from "@angular/common/http";
+import { Inject, Injectable } from "@angular/core";
+import { delay, Observable, of, switchMap, throwError } from "rxjs";
 
-import { APP_MOCK_API_DEFAULT_DELAY } from './mock-api.module';
-import { AppMockApiService } from './mock-api.service';
+import { APP_MOCK_API_DEFAULT_DELAY } from "./mock-api.module";
+import { AppMockApiService } from "./mock-api.service";
 
 @Injectable({
   providedIn: "root",

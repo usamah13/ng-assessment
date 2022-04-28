@@ -1,8 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Observable, Subscription } from "rxjs";
 
-import { Performance } from './performance.type';
-import { PerformancesService } from './performances.service';
+import { Performance } from "./performance.type";
+import { PerformancesService } from "./performances.service";
 
 export type SortDirection = "time:slowToFast" | "time:fastToSlow" | "year:frToSr" | "year:SrToFr";
 

@@ -1,5 +1,5 @@
-import { HttpRequest } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpRequest } from "@angular/common/http";
+import { Observable } from "rxjs";
 
 export type AppMockApiReplyCallback =
   | ((data: {

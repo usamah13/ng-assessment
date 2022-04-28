@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import { cloneDeep } from 'lodash-es';
+import { Injectable } from "@angular/core";
+import { cloneDeep } from "lodash-es";
 
-import { Performance } from '../../performances/performance.type';
-import { AppMockApiService } from '../mock-api.service';
-import { performances as performancesData } from './data';
+import { Performance } from "../../performances/performance.type";
+import { AppMockApiService } from "../mock-api.service";
+import { performances as performancesData } from "./data";
 
 @Injectable({
   providedIn: "root",

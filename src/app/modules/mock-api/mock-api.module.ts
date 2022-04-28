@@ -1,8 +1,8 @@
-import { CommonModule } from '@angular/common';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { APP_INITIALIZER, InjectionToken, ModuleWithProviders, NgModule } from '@angular/core';
+import { CommonModule } from "@angular/common";
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { APP_INITIALIZER, InjectionToken, ModuleWithProviders, NgModule } from "@angular/core";
 
-import { MockApiInterceptorService } from './mock-api-interceptor.service';
+import { MockApiInterceptorService } from "./mock-api-interceptor.service";
 
 export const APP_MOCK_API_DEFAULT_DELAY = new InjectionToken<number>("APP_MOCK_API_DEFAULT_DELAY");
 

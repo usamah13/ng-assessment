@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { compact, fromPairs } from 'lodash-es';
+import { Injectable } from "@angular/core";
+import { compact, fromPairs } from "lodash-es";
 
-import { AppMockApiHandler } from './mock-api.request-handler';
-import { AppMockApiMethods } from './mock-api.types';
+import { AppMockApiHandler } from "./mock-api.request-handler";
+import { AppMockApiMethods } from "./mock-api.types";
 
 @Injectable({
   providedIn: "root",

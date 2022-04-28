@@ -1,7 +1,7 @@
-import { HttpRequest } from '@angular/common/http';
-import { Observable, of, take, throwError } from 'rxjs';
+import { HttpRequest } from "@angular/common/http";
+import { Observable, of, take, throwError } from "rxjs";
 
-import { AppMockApiReplyCallback } from './mock-api.types';
+import { AppMockApiReplyCallback } from "./mock-api.types";
 
 export class AppMockApiHandler {
   request!: HttpRequest<any>;
