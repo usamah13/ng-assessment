@@ -4,7 +4,7 @@ import { Observable, Subscription } from "rxjs";
 import { Performance } from "./performance.type";
 import { PerformancesService } from "./performances.service";
 
-export type SortDirection = "time:slowToFast" | "time:fastToSlow" | "year:frToSr" | "year:SrToFr";
+export type SortDirection = "time:slowToFast" | "time:fastToSlow" | "year:frToSr" | "year:srToFr";
 
 interface MenuOption {
   label: string;
@@ -47,7 +47,7 @@ export class PerformancesComponent implements OnInit, OnDestroy {
       "Year: Senior to Freshman": {
         active: false,
         label: "Year: Senior to Freshman",
-        sortBy: "year:SrToFr",
+        sortBy: "year:srToFr",
       },
     };
   }
