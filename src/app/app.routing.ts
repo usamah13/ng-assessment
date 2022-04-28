@@ -13,6 +13,8 @@ export const appRoutes: Routes = [
         loadChildren: () =>
           import("./modules/performances/performances.module").then(m => m.PerformancesModule),
       },
+      { path: "**", redirectTo: "performances" },
     ],
   },
+  { path: "**", redirectTo: "dashboards/performances" },
 ];
