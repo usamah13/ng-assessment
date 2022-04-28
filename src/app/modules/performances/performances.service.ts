@@ -9,9 +9,11 @@ import { SortDirection } from "./performances.component";
   providedIn: "root",
 })
 export class PerformancesService {
-  private readonly _performances: BehaviorSubject<Performance[] | null> = new BehaviorSubject(null);
+  private readonly _performances: BehaviorSubject<Performance[] | null>;
 
-  constructor(private _httpClient: HttpClient) {}
+  constructor(private _httpClient: HttpClient) {
+    this._performances = new BehaviorSubject(null);
+  }
 
   get performances$(): Observable<Performance[]> {
     return this._performances.asObservable();
