@@ -9,7 +9,7 @@ import { SortDirection } from "./performances.component";
   providedIn: "root",
 })
 export class PerformancesService {
-  private _performances: BehaviorSubject<Performance[] | null> = new BehaviorSubject(null);
+  private readonly _performances: BehaviorSubject<Performance[] | null> = new BehaviorSubject(null);
 
   constructor(private _httpClient: HttpClient) {}
 
@@ -18,15 +18,16 @@ export class PerformancesService {
   }
 
   getPerformances(): Observable<Performance[]> {
-    return this._httpClient.get<Performance[]>("api/performances").pipe(
-      tap(performances => {
-        this._performances.next(performances);
-      })
-    );
+    return this._getPerformances();
   }
 
   getSortedPerformances(sortDirection: SortDirection): Observable<Performance[]> {
-    return this._httpClient.get<Performance[]>(`api/performances?sortBy=${sortDirection}`).pipe(
+    return this._getPerformances(sortDirection);
+  }
+
+  private _getPerformances(sortDirection?: SortDirection): Observable<Performance[]> {
+    const params = sortDirection ? `?sortBy=${sortDirection}` : "";
+    return this._httpClient.get<Performance[]>(`api/performances${params}`).pipe(
       tap(performances => {
         this._performances.next(performances);
       })

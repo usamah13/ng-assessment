@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { cloneDeep } from "lodash-es";
 
 import { Performance } from "../../performances/performance.type";
+import { SortDirection } from "../../performances/performances.component";
 import { AppMockApiService } from "../mock-api.service";
 import { performances as performancesData } from "./data";
 
@@ -38,18 +39,21 @@ export class PerformancesMockApiService {
       return [200, performances];
     });
 
-    this._appMockApiService.onGet("api/performances?sortBy=year:frToSr").reply(() => {
+    const sortConfig = {
+      "FR-1": 0,
+      "SO-2": 1,
+      "JR-3": 2,
+      "SR-4": 3,
+    };
+    const sortByFrToSr: SortDirection = "year:frToSr";
+    const sortBySrToFr: SortDirection = "year:srToFr";
+
+    this._appMockApiService.onGet(`api/performances?sortBy=${sortByFrToSr}`).reply(() => {
       // Clone the performances
       const performances: Performance[] = cloneDeep(this._performances);
 
       // Sort the performances by the name field by default
       performances.sort((a, b) => {
-        const sortConfig = {
-          "FR-1": 0,
-          "SO-2": 1,
-          "JR-3": 2,
-          "SR-4": 3,
-        };
         return sortConfig[a.year] - sortConfig[b.year];
       });
 
@@ -57,18 +61,12 @@ export class PerformancesMockApiService {
       return [200, performances];
     });
 
-    this._appMockApiService.onGet("api/performances?sortBy=year:SrToFr").reply(() => {
+    this._appMockApiService.onGet(`api/performances?sortBy=${sortBySrToFr}`).reply(() => {
       // Clone the performances
       const performances: Performance[] = cloneDeep(this._performances);
 
       // Sort the performances by the name field by default
       performances.sort((a, b) => {
-        const sortConfig = {
-          "FR-1": 0,
-          "SO-2": 1,
-          "JR-3": 2,
-          "SR-4": 3,
-        };
         return sortConfig[b.year] - sortConfig[a.year];
       });
 

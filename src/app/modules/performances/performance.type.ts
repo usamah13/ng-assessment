@@ -1,6 +1,6 @@
 export interface Performance {
   id: string; // uuid
-  value: number; // time in seconds
+  value: string; // time in seconds
   name: string;
   program: string;
   year: string;

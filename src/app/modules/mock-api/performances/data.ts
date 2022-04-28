@@ -1,4 +1,6 @@
-export const performances = [
+import { Performance } from "../../performances/performance.type";
+
+export const performances: Performance[] = [
   {
     id: "cd5fa417-b667-482d-b208-798d9da3213c",
     value: "1:44.41",

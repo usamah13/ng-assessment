@@ -27,17 +27,17 @@ export class AppMockApiHandler {
   get response(): Observable<any> {
     // If the execution limit has been reached, throw an error
     if (this._replyCount > 0 && this._replyCount <= this._replied) {
-      return throwError("Execution limit has been reached!");
+      return throwError(() => "Execution limit has been reached!");
     }
 
     // If the response callback has not been set, throw an error
     if (!this._reply) {
-      return throwError("Response callback function does not exist!");
+      return throwError(() => "Response callback function does not exist!");
     }
 
     // If the request has not been set, throw an error
     if (!this.request) {
-      return throwError("Request does not exist!");
+      return throwError(() => "Request does not exist!");
     }
 
     // Increase the replied count

@@ -6,17 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styles: [],
 })
 export class AppComponent implements OnInit {
-  title = "ng-assessment";
-
-  menuIsOpen: boolean;
-
-  constructor() {
-    this.menuIsOpen = false;
-  }
+  constructor() {}
 
   ngOnInit(): void {}
-
-  onToggleMenu(): void {
-    this.menuIsOpen = !this.menuIsOpen;
-  }
 }
