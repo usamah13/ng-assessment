@@ -12,15 +12,15 @@
           <mat-icon class="icon-size-5 ml-1 text-gray-400">expand_more</mat-icon>
         </button>
         <mat-menu #cardMenu="matMenu">
-          <ng-container *ngFor="let option of menuOptions | keyvalue">
+          <ng-container *ngFor="let option of menuOptions | keyvalue; trackBy: trackByMenuOption">
             <mat-divider *ngIf="option.value.showDivider"></mat-divider>
             <button
               mat-menu-item
               [class.font-medium]="option.value.active"
               [class.text-gray-400]="!option.value.active"
-              (click)="onMenuItemClick(option.value)"
+              (click)="onMenuItemClick(option.key, option.value)"
             >
-              {{ option.value.label }}
+              {{ option.key }}
             </button>
           </ng-container>
         </mat-menu>
@@ -28,7 +28,7 @@
     </div>
     <div class="flex flex-col my-2">
       <div
-        *ngFor="let performance of performances$ | async"
+        *ngFor="let performance of performances$ | async; trackBy: trackByPerformance"
         class="flex my-2 justify-between"
       >
         <div class="flex flex-col">
