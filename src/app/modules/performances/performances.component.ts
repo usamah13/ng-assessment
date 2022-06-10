@@ -40,13 +40,12 @@ export class PerformancesComponent implements OnInit, OnDestroy {
   }
 
   onMenuItemClick(selectedSortLabel: string, selectedOption: MenuOption): void {
-    // set all options to false
+    // set all options as inactive
     for (const [label, menuOption] of this.menuOptions.entries())
       this.menuOptions.get(label).active = false;
 
-    if (!this.menuOptions.get(selectedSortLabel).active) {
+    if (!this.menuOptions.get(selectedSortLabel).active)
       this.getSortedPerformances(selectedOption.sortBy);
-    }
 
     // set the selected option to active
     this.menuOptions.get(selectedSortLabel).active = true;
@@ -69,7 +68,11 @@ export class PerformancesComponent implements OnInit, OnDestroy {
   private initializeMenu(): void {
     this.menuOptions.set("Time: Fast to Slow", { active: false, sortBy: "time:fastToSlow" });
     this.menuOptions.set("Time: Slow to Fast", { active: false, sortBy: "time:slowToFast" });
-    this.menuOptions.set("Year: Freshman to Senior", { active: true, sortBy: "year:frToSr" });
+    this.menuOptions.set("Year: Freshman to Senior", {
+      active: true,
+      sortBy: "year:frToSr",
+      showDivider: true,
+    });
     this.menuOptions.set("Year: Senior to Freshman", { active: false, sortBy: "year:srToFr" });
   }
 }
